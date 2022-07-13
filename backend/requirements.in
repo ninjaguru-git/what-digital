@@ -83,4 +83,4 @@ django-adminutils # a set of shortcuts for admin.py composition
 sentry-sdk
 django-robots
 
-
+django-taggit

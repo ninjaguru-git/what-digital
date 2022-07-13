@@ -1,0 +1,15 @@
+{% extends CMS_TEMPLATE %}
+
+{% block meta %}
+    {% if meta %}
+        {% include "meta/meta.html" %}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock meta %}
+
+{% block content %}
+<div class="app">
+    {% block content_article %}{% endblock %}
+</div>
+{% endblock content%}

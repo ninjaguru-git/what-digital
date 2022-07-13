@@ -5,4 +5,6 @@ from django.apps import AppConfig
 
 
 class ArticleConfig(AppConfig):
-    name = 'article'
+    label = 'backend_article'
+    name = 'backend.article'
+    verbose_name = 'Articles'

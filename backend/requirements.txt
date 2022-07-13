@@ -282,6 +282,7 @@ django-tablib==3.2
     # via aldryn-forms
 django-taggit==2.1.0
     # via
+    #   -r backend/requirements.in
     #   django-taggit-autosuggest
     #   django-taggit-templatetags
     #   djangocms-blog
@@ -362,7 +363,7 @@ djangocms-text-ckeditor==4.0.0
     #   aldryn-forms
     #   djangocms-blog
     #   djangocms-bootstrap4
-https://github.com/django-cms/djangocms-video/archive/refs/heads/master.zip#egg=djangocms-video
+djangocms-video @ https://github.com/django-cms/djangocms-video/archive/refs/heads/master.zip
     # via -r backend/requirements.in
 djangorestframework==3.13.1
     # via -r backend/requirements.in
