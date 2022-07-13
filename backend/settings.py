@@ -179,6 +179,8 @@ INSTALLED_APPS.extend([
     'backend.plugins.horizontal_line',
 
     ## BEWARE: any application added here will not show their models in django admin UNLESS you configure them below in the ADMIN_REORDER setting.
+    'backend.article',
+    'parler',
 ])
 
 
@@ -339,6 +341,10 @@ HIJACK_ALLOW_GET_REQUESTS = True
 
 
 ADMIN_REORDER = [
+    {
+        'label': 'Articles',
+        'app': 'article',
+    },
     {
         'label': 'Users',
         'app': 'auth',
