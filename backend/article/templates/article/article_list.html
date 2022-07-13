@@ -30,13 +30,13 @@
             <div class="row article-row">
                 <nav class="pagination article-pagination">
                     {% if page_obj.has_previous %}
-                        <a href="?{{ view.page_kwarg }}={{ page_obj.previous_page_number }}">&laquo; {% trans "previous" %}</a>
+                        <a href="?{{ view.page_kwarg }}={{ page_obj.previous_page_number }}&filter={{ filter }}">&laquo; {% trans "previous" %}</a>
                     {% endif %}
                     <span class="current">
                         {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ paginator.num_pages }}
                     </span>
                     {% if page_obj.has_next %}
-                        <a href="?{{ view.page_kwarg }}={{ page_obj.next_page_number }}">{% trans "next" %}
+                        <a href="?{{ view.page_kwarg }}={{ page_obj.next_page_number }}&filter={{ filter }}">{% trans "next" %}
                             &raquo;</a>
                     {% endif %}
                 </nav>
