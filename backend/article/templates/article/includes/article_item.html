@@ -1,0 +1,29 @@
+{% load i18n easy_thumbnails_tags cms_tags %}
+
+<div id="article-{{ article.slug }}" class="col-sm-24 col-md-24 col-lg-24 col-xl-24">
+    <article class="article-item">
+        <a href="{{ article.get_absolute_url }}">
+            {% thumbnail article.image 510x350 crop upscale as thumb %}
+            <div class="article-visual">
+                <img src="{{ thumb.url }}">
+            </div>
+        </a>
+
+        <div class="article-item-body">
+            <div class="article-item-meta">
+                <span class="article-item-date">
+                    {{ article.creation_date|date:"DATE_FORMAT" }}
+                </span>
+            </div>
+
+            <a class="post-item-link" href="{{ article.get_absolute_url }}">
+                <h3 class="title">{{ article.title }}</h3>
+            </a>
+
+            <div class="blog-lead">
+                {% render_model article "content" "" "" "truncatechars_html:100" %}
+            </div>
+        </div>
+    </article>
+
+</div>

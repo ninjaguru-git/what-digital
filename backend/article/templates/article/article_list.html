@@ -1,0 +1,46 @@
+{% extends "article/includes/base.html" %}
+
+{% load i18n easy_thumbnails_tags sekizai_tags static cms_tags %}
+
+{% block content_article %}
+    <section class="container">
+        <h1>{% trans "Articles" %}</h1>
+        <div class="row article-row">
+            <div class="col-sm-24 col-md-24 col-lg-24 col-xl-24 ">
+                <form class="form" method="get" action="{% url 'article:article_list' %}">
+                    <div class="form-group">
+                        <label for="filter">Filter:</label>
+                        <input type="text" class="form-control" id="filter" placeholder="Filter Tag" name="filter" value="{{ filter }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row article-row">
+            <div class="article-wrapper">
+                {% for article in article_list %}
+                    {% include "article/includes/article_item.html" with article=article image="true" TRUNCWORDS_COUNT=TRUNCWORDS_COUNT %}
+                {% empty %}
+                    <p class="blog-empty">{% trans "No article found." %}</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% if is_paginated %}
+            <div class="row article-row">
+                <nav class="pagination article-pagination">
+                    {% if page_obj.has_previous %}
+                        <a href="?{{ view.page_kwarg }}={{ page_obj.previous_page_number }}">&laquo; {% trans "previous" %}</a>
+                    {% endif %}
+                    <span class="current">
+                        {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ paginator.num_pages }}
+                    </span>
+                    {% if page_obj.has_next %}
+                        <a href="?{{ view.page_kwarg }}={{ page_obj.next_page_number }}">{% trans "next" %}
+                            &raquo;</a>
+                    {% endif %}
+                </nav>
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}
