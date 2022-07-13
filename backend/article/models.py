@@ -42,6 +42,7 @@ class Article(models.Model):
         return "article-{}".format(self.slug)
 
     def get_absolute_url(self):
+        """get absolute url."""
         return reverse('article:article_detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
