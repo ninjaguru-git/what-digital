@@ -15,6 +15,7 @@ class ArticleAdmin(admin.ModelAdmin):
         return super().get_queryset(request).prefetch_related('tags')
 
     def tag_list(self, obj):
+        """tag list"""
         return u", ".join(o.name for o in obj.tags.all())
 
 
