@@ -1,6 +1,6 @@
 *.pyc
 *.pyo
+/.env
 /data
-/backend/static_collected
-/backend/.local-env
-/frontend/node_modules
+/static_collected
+/node_modules
