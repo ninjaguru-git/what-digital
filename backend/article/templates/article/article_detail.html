@@ -1,0 +1,26 @@
+{% extends "article/includes/base.html" %}
+{% load i18n easy_thumbnails_tags cms_tags menu_tags static page_meta_tags meta_extra %}
+
+{% block content_article %}
+
+    <section
+        class="section-with-image-background-plugin"
+        style="background: url('{% thumbnail article.image 2560x1000 crop="center" %}'); height: 350px; background-size: cover; background-repeat: no-repeat;"
+    >
+    </section>
+
+    <section class="container">
+        <div class="row">
+            <article id="article-{{ article.slug }}" class="col-lg-17 col-md-24">
+                <header>
+                    <h1 class="post-title">{% render_model article "title" %}</h1>
+                </header>
+                <span>
+                    {{ article.creation_date|date:"DATE_FORMAT" }}
+                </span>
+                <p>{% trans article.content %}</p>
+            </article>
+        </div>
+    </section>
+
+{% endblock %}
