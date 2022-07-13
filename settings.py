@@ -20,6 +20,7 @@ INSTALLED_ADDONS = [
     "djangocms-file",
     "djangocms-googlemap",
     "djangocms-link",
+    "djangocms-picture",
     "djangocms-snippet",
     "djangocms-text-ckeditor",
     "django-filer",
