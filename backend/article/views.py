@@ -24,7 +24,7 @@ class ArticleListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["TRUNCWORDS_COUNT"] = 20
-        context["filter"] = self.request.GET.get('filter', None)
+        context["filter"] = self.request.GET.get('filter', '')
         return context
 
 
